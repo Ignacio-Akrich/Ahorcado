@@ -7,14 +7,19 @@ public class Tauler {
     private char[] paraulaSecreta;
     private String[] palabraEndevinada;
 
+    //Constructor vacio
     public Tauler() {
     }
 
+    //constructor
     public Tauler(Integer intents, char[] paraulaSecreta) {
-        this.intents = intents;
-        this.paraulaSecreta = paraulaSecreta;
+        setIntents(intents);
+        setParaulaSecreta(paraulaSecreta);
+        setPalabraEndevinada(palabraEndevinada);
+
     }
 
+    //Getters y setters
     public Integer getIntents() {
         return intents;
     }
@@ -39,13 +44,13 @@ public class Tauler {
         this.palabraEndevinada = palabraEndevinada;
     }
 
-
-    public void inicialitzarPartida(String paraula, Integer vides) {
-        char[] words = paraula.toCharArray();
-        setParaulaSecreta(words);
-        setIntents(vides);
+    public void inicialitzarPartida(String paraula, Integer vidas) {
+        char[] palabras = paraula.toCharArray();
+        setParaulaSecreta(palabras);
+        setIntents(vidas);
     }
 
+    //Metodos
     public void restarIntent() {
         this.intents--;
     }
@@ -82,15 +87,16 @@ public class Tauler {
                 System.out.println(palabraEndevinada[i]);
             }
         }
+        System.out.println(palabraEndevinada);
     }
 
     public boolean hasGuanyat() {
-        boolean estat = true;
+        boolean valor = true;
         for (int i = 0; i < palabraEndevinada.length; i++) {
-            if (palabraEndevinada[i] == null) {
-                return false;
+            if (palabraEndevinada[i].equals("")) {
+                valor = false;
             }
         }
-        return true;
+        return valor;
     }
 }
