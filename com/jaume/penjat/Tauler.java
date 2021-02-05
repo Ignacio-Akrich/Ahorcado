@@ -16,7 +16,6 @@ public class Tauler {
         setIntents(intents);
         setParaulaSecreta(paraulaSecreta);
         setPalabraEndevinada(palabraEndevinada);
-
     }
 
     //Getters y setters
@@ -56,8 +55,8 @@ public class Tauler {
     }
 
     public String imprimirVides() {
-        String frase = String.format("Te quedan %v vidas", intents);
-        if (intents == 1) frase = String.format("Te quedan %v vidas", intents);
+        String frase = String.format("Te quedan %s vidas ", intents);
+        if (intents == 1) frase = String.format("Te quedan %s vida", intents);
         return frase;
     }
 
@@ -79,7 +78,7 @@ public class Tauler {
         return "";
     }
 
-    public void imprimir() {
+    public String imprimir() {
         for (int i = 0; i < palabraEndevinada.length; i++) {
             if (palabraEndevinada[i].equals("")) {
                 System.out.println("_");
@@ -87,7 +86,7 @@ public class Tauler {
                 System.out.println(palabraEndevinada[i]);
             }
         }
-        System.out.println(palabraEndevinada);
+        return "";
     }
 
     public boolean hasGuanyat() {
