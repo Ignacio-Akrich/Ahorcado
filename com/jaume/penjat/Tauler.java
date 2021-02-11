@@ -9,15 +9,6 @@ public class Tauler {
     private Integer totalLife;
 
 
-
-    public Integer getTotalLife() {
-        return totalLife;
-    }
-
-    public void setTotalLife(Integer totalLife) {
-        this.totalLife = totalLife;
-    }
-
     //Constructor vacio
     public Tauler() {
     }
@@ -44,18 +35,17 @@ public class Tauler {
         return palabraEndevinada;
     }
 
-    public void setIntents(Integer intents) {
-        this.intents = intents;
+    public Integer getTotalLife() {
+        return totalLife;
+    }
+
+    public void setTotalLife(Integer totalLife) {
         this.totalLife = totalLife;
     }
 
-    public void setParaula(String palabra) {
-        setParaula(palabra);
-    }
-
-    public String setLetra(String letra) {
-        setLetra(letra);
-        return letra;
+    public void setIntents(Integer intents) {
+        this.intents = intents;
+        this.totalLife = totalLife;
     }
 
     public void setParaulaSecreta(char[] paraulaSecreta) {
@@ -67,21 +57,11 @@ public class Tauler {
         this.palabraEndevinada = palabraEndevinada;
     }
 
+    //Metodos
     public void inicialitzarPartida(String paraula, Integer totalLife) {
         char[] palabras = paraula.toCharArray();
         setParaulaSecreta(palabras);
         setIntents(totalLife);
-    }
-
-    //Metodos
-    public void restarIntent() {
-        this.intents--;
-    }
-
-    public String imprimirVides() {
-        String frase = String.format("Te quedan %s vidas de %s ", intents, totalLife);
-        if (intents == 1) frase = String.format("Te quedan %s vida de %", intents, totalLife);
-        return frase;
     }
 
     public String verificar(String letra) {
@@ -102,6 +82,10 @@ public class Tauler {
         return "";
     }
 
+    public void restarIntent() {
+        this.intents--;
+    }
+
     public String imprimir() {
         String exit = "";
         for (int i = 0; i < palabraEndevinada.length; i++) {
@@ -114,6 +98,12 @@ public class Tauler {
         return exit;
     }
 
+    public String imprimirVides() {
+        String frase = String.format("Te quedan %s vidas de %s ", intents, totalLife);
+        if (intents == 1) frase = String.format("Te quedan %s vida de %", intents, totalLife);
+        return frase;
+    }
+
     public boolean hasGuanyat() {
         boolean valor = true;
         for (int i = 0; i < palabraEndevinada.length; i++) {
@@ -123,4 +113,5 @@ public class Tauler {
         }
         return valor;
     }
+
 }
