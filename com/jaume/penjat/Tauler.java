@@ -7,19 +7,22 @@ public class Tauler {
     private char[] paraulaSecreta;
     private String[] palabraEndevinada;
     private Integer totalLife;
+    private String paraula;
+    private String letra;
 
 
     //Constructor vacio
     public Tauler() {
-    }
 
+    }
     //constructor
-    public Tauler(Integer intents, char[] paraulaSecreta, String[] palabraEndevinada, Integer totalLife) {
+    public Tauler(Integer intents, char[] paraulaSecreta, String[] palabraEndevinada, Integer totalLife, String paraula, String letra) {
         setIntents(intents);
         setParaulaSecreta(paraulaSecreta);
         setPalabraEndevinada(palabraEndevinada);
         setTotalLife(totalLife);
-
+        setParaula(paraula);
+        setLetra(letra);
     }
 
     //Getters y setters
@@ -35,17 +38,23 @@ public class Tauler {
         return palabraEndevinada;
     }
 
-    public Integer getTotalLife() {
-        return totalLife;
-    }
-
     public void setTotalLife(Integer totalLife) {
         this.totalLife = totalLife;
+    }
+    
+
+    public String setLetra(String letra) {
+        this.letra = letra;
+        return letra;
+    }
+
+    public void setParaula(String paraula) {
+        this.paraula = paraula;
     }
 
     public void setIntents(Integer intents) {
         this.intents = intents;
-        this.totalLife = totalLife;
+        this.totalLife = intents;
     }
 
     public void setParaulaSecreta(char[] paraulaSecreta) {
@@ -65,8 +74,9 @@ public class Tauler {
     }
 
     public String verificar(String letra) {
+        String letraNueva = setLetra(letra);
         if (letra.length() > 1) {
-            return "te has equivocado";
+            return "Lletra incorrecte";
         } else {
             boolean existe = false;
             for (int i = 0; i < paraulaSecreta.length; i++) {
@@ -89,7 +99,7 @@ public class Tauler {
     public String imprimir() {
         String exit = "";
         for (int i = 0; i < palabraEndevinada.length; i++) {
-            if (palabraEndevinada[i].equals("")) {
+            if (palabraEndevinada[i] == (null)) {
                 System.out.println("_");
             } else {
                 System.out.println(palabraEndevinada[i]);
@@ -99,15 +109,15 @@ public class Tauler {
     }
 
     public String imprimirVides() {
-        String frase = String.format("Te quedan %s vidas de %s ", intents, totalLife);
-        if (intents == 1) frase = String.format("Te quedan %s vida de %", intents, totalLife);
+        String frase = String.format("Et queden %s vides de %s", intents, totalLife);
+        if (intents == 1) frase = String.format("Et queda %s vida de %s", intents, totalLife);
         return frase;
     }
 
     public boolean hasGuanyat() {
         boolean valor = true;
         for (int i = 0; i < palabraEndevinada.length; i++) {
-            if (palabraEndevinada[i].equals("")) {
+            if (palabraEndevinada[i] == (null)) {
                 valor = false;
             }
         }
