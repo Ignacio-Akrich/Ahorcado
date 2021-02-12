@@ -8,8 +8,6 @@ public class Tauler {
     private String[] palabraEndevinada;
     private Integer totalLife;
 
-
-
     //Constructor vacio
     public Tauler() {
 
@@ -84,15 +82,15 @@ public class Tauler {
     }
 
     public String imprimir() {
-        String exit = "";
+        String result = "";
         for (int i = 0; i < palabraEndevinada.length; i++) {
             if (palabraEndevinada[i] == (null)) {
-                System.out.println("_");
+                result += "_";
             } else {
-                System.out.println(palabraEndevinada[i]);
+                result+=String.valueOf(palabraEndevinada[i]);
             }
         }
-        return exit;
+        return result;
     }
 
     public String imprimirVides() {
