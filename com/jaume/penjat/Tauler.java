@@ -7,8 +7,7 @@ public class Tauler {
     private char[] paraulaSecreta;
     private String[] palabraEndevinada;
     private Integer totalLife;
-    private String paraula;
-    private String letra;
+
 
 
     //Constructor vacio
@@ -16,13 +15,12 @@ public class Tauler {
 
     }
     //constructor
-    public Tauler(Integer intents, char[] paraulaSecreta, String[] palabraEndevinada, Integer totalLife, String paraula, String letra) {
+    public Tauler(Integer intents, char[] paraulaSecreta, String[] palabraEndevinada, Integer totalLife) {
         setIntents(intents);
         setParaulaSecreta(paraulaSecreta);
         setPalabraEndevinada(palabraEndevinada);
         setTotalLife(totalLife);
-        setParaula(paraula);
-        setLetra(letra);
+
     }
 
     //Getters y setters
@@ -40,16 +38,6 @@ public class Tauler {
 
     public void setTotalLife(Integer totalLife) {
         this.totalLife = totalLife;
-    }
-    
-
-    public String setLetra(String letra) {
-        this.letra = letra;
-        return letra;
-    }
-
-    public void setParaula(String paraula) {
-        this.paraula = paraula;
     }
 
     public void setIntents(Integer intents) {
@@ -74,7 +62,6 @@ public class Tauler {
     }
 
     public String verificar(String letra) {
-        String letraNueva = setLetra(letra);
         if (letra.length() > 1) {
             return "Lletra incorrecte";
         } else {
